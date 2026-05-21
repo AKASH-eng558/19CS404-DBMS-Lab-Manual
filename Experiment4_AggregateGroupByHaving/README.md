@@ -38,123 +38,199 @@ HAVING condition;
 
 **Question 1**
 --
--- Paste Question 1 here
+Write a SQL query to find the number of employees who are having the same age removing the duplicate values.
+
+Sample table: employee
+
+-- 
 
 ```sql
--- Paste your SQL code below for Question 1
+SELECT 
+    COUNT(DISTINCT age) AS COUNT
+FROM employee;
 ```
 
 **Output:**
+<img width="1174" height="375" alt="image" src="https://github.com/user-attachments/assets/5ee9d936-0458-43ae-820d-aa1c9cc7f135" />
 
-![Output1](output.png)
 
 **Question 2**
 ---
--- Paste Question 2 here
+Write a SQL query that counts the number of unique salespeople. Return number of salespeople.
+
+Sample table: orders
+--
 
 ```sql
--- Paste your SQL code below for Question 2
+SELECT 
+    COUNT(DISTINCT salesman_id) AS COUNT
+FROM orders;
 ```
 
 **Output:**
+<img width="1190" height="318" alt="image" src="https://github.com/user-attachments/assets/3c6b1437-624f-4902-b685-d9b392622176" />
 
-![Output2](output.png)
 
 **Question 3**
 ---
--- Paste Question 3 here
+Write a SQL query to find the maximum purchase amount.
+
+Sample table: orders
+
+ord_no      purch_amt   ord_date    customer_id  salesman_id
+
+----------  ----------  ----------  -----------  -----------
+
+70001       150.5       2012-10-05  3005         5002
+
+70009       270.65      2012-09-10  3001         5005
+
+70002       65.26       2012-10-05  3002         5001
+--
 
 ```sql
--- Paste your SQL code below for Question 3
+SELECT 
+    MAX(purch_amt) AS MAXIMUM
+FROM orders;
 ```
 
 **Output:**
+<img width="1216" height="315" alt="image" src="https://github.com/user-attachments/assets/7f6a8f2a-9917-431e-8bd4-ae1fc9adc352" />
 
-![Output3](output.png)
 
 **Question 4**
 ---
--- Paste Question 4 here
+How many medical records does each doctor have?
+
+Sample table:MedicalRecords Table
+
+--
 
 ```sql
--- Paste your SQL code below for Question 4
+SELECT 
+    DoctorID,
+    COUNT(*) AS TotalRecords
+FROM MedicalRecords
+GROUP BY DoctorID
+ORDER BY DoctorID;
 ```
 
 **Output:**
+<img width="1234" height="707" alt="image" src="https://github.com/user-attachments/assets/9c73cd6f-9afe-4d8a-b8d4-f6cbdcffc4fa" />
 
-![Output4](output.png)
 
 **Question 5**
 ---
--- Paste Question 5 here
+<img width="1212" height="265" alt="image" src="https://github.com/user-attachments/assets/106f0414-d2bd-4590-815f-bb5bb08fe49e" />
+
+--
 
 ```sql
--- Paste your SQL code below for Question 5
+SELECT 
+    DoctorID,
+    COUNT(*) AS TotalAppointments
+FROM Appointments
+GROUP BY DoctorID
+ORDER BY DoctorID;
 ```
 
 **Output:**
+<img width="1155" height="633" alt="image" src="https://github.com/user-attachments/assets/65a5fc81-c793-48e4-9c75-24f293992464" />
 
-![Output5](output.png)
 
 **Question 6**
 ---
--- Paste Question 6 here
+<img width="1173" height="260" alt="image" src="https://github.com/user-attachments/assets/161d6f06-34ca-4bb8-85e4-1f5e53597d4d" />
+
+-- 
 
 ```sql
--- Paste your SQL code below for Question 6
+SELECT 
+    DATE(AppointmentDateTime) AS AppointmentDate,
+    COUNT(*) AS TotalAppointments
+FROM Appointments
+GROUP BY DATE(AppointmentDateTime);
 ```
 
 **Output:**
+<img width="1199" height="718" alt="image" src="https://github.com/user-attachments/assets/67e1960c-5f9e-4dcd-870a-7fe1b2135a49" />
 
-![Output6](output.png)
 
 **Question 7**
 ---
--- Paste Question 7 here
+<img width="1239" height="285" alt="image" src="https://github.com/user-attachments/assets/3200aaf6-ae94-4458-a988-e04cd25e595d" />
+
+--
 
 ```sql
--- Paste your SQL code below for Question 7
+SELECT 
+    occupation,
+    AVG(workhour)
+FROM employee1
+GROUP BY occupation
+HAVING AVG(workhour) BETWEEN 10 AND 12;
 ```
 
 **Output:**
+<img width="1193" height="431" alt="image" src="https://github.com/user-attachments/assets/1248fe40-b54d-4870-aadf-910ded67c11d" />
 
-![Output7](output.png)
 
 **Question 8**
 ---
--- Paste Question 8 here
+<img width="1222" height="264" alt="image" src="https://github.com/user-attachments/assets/e28b8a70-cae8-437a-9122-2217bfb33b08" />
+
+-- 
 
 ```sql
--- Paste your SQL code below for Question 8
+SELECT 
+    (age / 5) * 5 AS age_group,
+    AVG(age)
+FROM customer1
+GROUP BY (age / 5) * 5
+HAVING AVG(age) < 24;
 ```
 
 **Output:**
+<img width="1214" height="377" alt="image" src="https://github.com/user-attachments/assets/59445287-907c-4177-99bc-731f12a96b21" />
 
-![Output8](output.png)
 
 **Question 9**
 ---
--- Paste Question 9 here
+<img width="1217" height="297" alt="image" src="https://github.com/user-attachments/assets/50f620dc-9700-4621-bb0b-87af0d5fb40e" />
+
+-- 
 
 ```sql
--- Paste your SQL code below for Question 9
+SELECT 
+    age,
+    MAX(income)  
+FROM employee
+GROUP BY age
+HAVING MAX(income) > 2000000;
 ```
 
 **Output:**
+<img width="1214" height="386" alt="image" src="https://github.com/user-attachments/assets/976b1a82-dde7-4541-8ac5-c20433935532" />
 
-![Output9](output.png)
 
 **Question 10**
 ---
--- Paste Question 10 here
+<img width="1204" height="296" alt="image" src="https://github.com/user-attachments/assets/6cad0bb5-ed6f-4709-a990-ba2be3158ad5" />
+
+--
 
 ```sql
--- Paste your SQL code below for Question 10
+SELECT 
+  category_id, 
+  MIN(price) AS Price
+FROM products
+GROUP BY category_id
+HAVING MIN(price) < 10;
 ```
 
 **Output:**
+<img width="1229" height="426" alt="image" src="https://github.com/user-attachments/assets/8723fb8f-0cfe-4610-a9eb-20b37a3b25fe" />
 
-![Output10](output.png)
 
 
 ## RESULT
